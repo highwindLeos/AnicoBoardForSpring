@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Stylish Portfolio - Start Bootstrap Template</title>
+  <title>WelCome To AnicoBoard</title>
   <!-- Bootstrap Core CSS -->
   <link href="<c:url value="/resources/vendor/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
   <!-- Custom Fonts -->
@@ -47,9 +48,9 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">Stylish Portfolio</h1>
+      <h1 class="mb-1">WelCome To AnicoBoard - PortPolio</h1>
       <h3 class="mb-5">
-        <em>A Free Bootstrap Theme by Start Bootstrap</em>
+        <em>Used Bootstrap Library</em>
       </h3>
       <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
     </div>

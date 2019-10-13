@@ -14,6 +14,15 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/css/**" location="/css/" />
+	<resources mapping="/js/**" location="/js/" />
+	<resources mapping="/img/**" location="/img/" />
+	<resources mapping="/slick/**" location="/slick/" />
+	<resources mapping="/movieImg/**" location="/movieImg/" />
+	<resources mapping="/customerPhoto/**" location="/customerPhoto/" />
+	<resources mapping="/foodImg/**" location="/foodImg/" />
+	<resources mapping="/freeBoardUpload/**" location="/freeBoardUpload/" />
+	<resources mapping="/noticeFile/**" location="/noticeFile/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,8 +30,26 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kr.com.anicoboard" />
+	<context:component-scan base-package="kr.com.anicoboard.controller" />
 	
-	
+	<!-- 파일 업로드 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/>
+	</beans:bean>
+	<!-- 메일 발신  -->
+	<beans:bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<beans:property name="host" value="smtp.gmail.com"/>
+		<beans:property name="port" value="587"/>
+		<beans:property name="username" value="uiux0905"/>
+		<beans:property name="password" value="mega-it501"/>
+		<beans:property name="javaMailProperties">
+			<beans:props>
+				<beans:prop key="mail.smtp.auth">true</beans:prop>
+				<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+				<beans:prop key="mail.debug">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
 	
 </beans:beans>

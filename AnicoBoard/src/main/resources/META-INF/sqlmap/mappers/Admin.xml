@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 불러올 Dto별명 -->
+<mapper namespace="Admin">
+
+	<resultMap type="Admin" id="AdminResult"> <!--  -->
+		<result property="aId" column="aId" />
+		<result property="aPw" column="aPw" />
+		<result property="aName" column="aName" />
+	</resultMap>
+	
+	<!-- 관리자로그인체크 -->
+	<select id="adminlogin" parameterType="Admin" resultMap="AdminResult">
+		SELECT * FROM ADMIN WHERE aId=#{aId} AND aPw=#{aPw}
+	</select>
+	<!-- 관리자가입 -->
+	<insert id="adminJoin" parameterType="Admin">
+		INSERT INTO ADMIN VALUES (#{aId},#{aPw},#{aName})
+	</insert>
+	<!-- 관리자리스트 -->
+	<select id="adminList" resultMap="AdminResult">
+		SELECT * FROM ADMIN
+	</select>
+	<!-- 관리자ID중복체크 -->
+	<select id="adminConfirm" resultMap="AdminResult">
+		SELECT * FROM ADMIN WHERE AID= #{aId}
+	</select>
+	<!-- 관리자삭제 -->
+	<delete id="adminDelete" parameterType="Admin">
+		DELETE ADMIN WHERE AID = #{aId}
+	</delete>
+</mapper>
+    
+    
