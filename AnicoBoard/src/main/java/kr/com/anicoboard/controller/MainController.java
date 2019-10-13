@@ -1,7 +1,5 @@
 package kr.com.anicoboard.controller;
 
-import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,7 +16,7 @@ public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
 	/**
-	 * Main Page /anicoboard.
+	 * Index Page /anicoboard.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index( Model model) {

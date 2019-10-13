@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.com.anicoboard.dao.AdminDao;
+import kr.com.anicoboard.dao.AdminDaoImpl;
 import kr.com.anicoboard.model.Admin;
 
 @Service
-public class AdminServiceImpls implements AdminService {
+public class AdminServiceImpl implements AdminService {
 	@Autowired
-	private AdminDao adminDao;
+	private AdminDaoImpl adminDao;
 
 	@Override
 	public Admin adminLogin(Admin admin) {

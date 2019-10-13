@@ -26,10 +26,7 @@
   <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#page-top">Start Bootstrap </a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#page-top">Home</a>
+        <a class="js-scroll-trigger" href="#page-top">Home AnicoBarad</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#about">About</a>
@@ -48,7 +45,7 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">WelCome To AnicoBoard - PortPolio</h1>
+      <h1 class="mb-1">WelCome To AnicoBoard - Portfolio</h1>
       <h3 class="mb-5">
         <em>Used Bootstrap Library</em>
       </h3>
@@ -116,15 +113,6 @@
           <p class="text-faded mb-0">I mustache you a question...</p>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Callout -->
-  <section class="callout">
-    <div class="container text-center">
-      <h2 class="mx-auto mb-5">Welcome to
-        <em>your</em>
-        next website!</h2>
-      <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
     </div>
   </section>
   <!-- Portfolio -->
