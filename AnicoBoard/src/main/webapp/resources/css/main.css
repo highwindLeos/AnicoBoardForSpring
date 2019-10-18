@@ -11,6 +11,10 @@ body {
 	background-repeat: repeat;
 }
 
+.backGroundNomal{
+	background: #aaa;
+}
+
 div > table {
 /* 	border : 1px solid #fff;
  */}
@@ -552,10 +556,27 @@ div#wrap > div > h4 {
 	text-align: right;
 }
 
+.marginTop20 {
+	margin-top: 20px;
+}
+.marginTop40 {
+	margin-top: 40px;
+}
+.marginTop60 {
+	margin-top: 60px;
+}
+.marginTop80 {
+	margin-top: 80px;
+}
+.marginTop100 {
+	margin-top: 100px;
+}
+
 .capsule {
 	border: 1px solid #fff;
 	border-radius: 15px;
 	padding: 5px 10px;
+	transition: all 1s;	
 }
 	.capsule:hover {
 		background-color: #fff;

@@ -16,10 +16,46 @@
   <link href="<c:url value="/resources/vendor/fontawesome-free/css/all.min.css" />" rel="stylesheet" type="text/css">
   <link href="<c:url value="/resources/vendor/simple-line-icons/css/simple-line-icons.css" />" rel="stylesheet">
   <!-- Custom CSS -->
+  <link href='<c:url value="/resources/css/main.css" />' rel="stylesheet">
   <link href='<c:url value="/resources/css/stylish-portfolio.min.css" />' rel="stylesheet">
 </head>
+<script>
+	window.onload = function(){
+		$("#alert-success").hide();
+	    $("#alert-danger").hide();
+	};
+    
+    $('input[type="password"]').keyup(function(){
+    	
+        let password1 = $("#password1").val();
+        let password2 = $("#password2").val();
+        
+        console.log(password1);
+        console.log(password2);
+        
+        if(password1 != "" || password2 != ""){
+            if(password1 == password2){
+                $("#alert-success").show();
+                $("#alert-danger").hide();
+                $("#submit").removeAttr("disabled");
+            } else {
+                $("#alert-success").hide();
+                $("#alert-danger").show();
+                $("#submit").attr("disabled", "disabled");
+            }    
+        }
+    });
 
-<body id="page-top">
+	//회원가입
+	register = () => {
+		let eMail = $('#email').val();
+		let passWord = $('#password').val();
+		
+		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord);
+	}
+</script>
+
+<body id="page-top" class="backGroundNomal">
   <!-- Navigation -->
   <a class="menu-toggle rounded" href="#">
     <i class="fas fa-bars"></i>
@@ -50,11 +86,9 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">WelCome To AnicoBoard - Portfolio</h1>
-      <h3 class="mb-5">
-        <em>Used Bootstrap Library</em>
-      </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+      <h1 class="mb-1 capsule colorDarkGray">WelCome To AnicoBoard - Portfolio</h1>
+      <div class="marginTop40"></div>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">ABOUT</a>
     </div>
     <div class="overlay"></div>
   </header>
@@ -63,6 +97,8 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-lg-10 mx-auto">
+          <h3 class="text-secondary mb-0">ABOUT</h3>
+          <div class="marginTop40"></div>
           <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
           <p class="lead mb-5">이 테마는 Unsplash 의 Photo Portfolio 를 이용하여 제작되었습니다.
             <a href="https://unsplash.com/"><i class="fas fa-camera-retro"></i> Unsplash!</a></p>
@@ -125,15 +161,15 @@
     <div class="container">
       <div class="content-section-heading text-center">
         <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5"><i class="fab fa-bootstrap"></i> Projects</h2>
+        <h2 class="mb-5 colorWhite"><i class="fab fa-bootstrap"></i> Projects</h2>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
           <a class="portfolio-item" href="<c:url value="/board/main/"/>" >
             <span class="caption">
               <span class="caption-content">
-                <h2>Board</h2>
-                <p class="mb-0">Free Board_.</p>
+                <h2>Retrotory Board</h2>
+                <p class="mb-0"><i class="fas fa-gamepad"></i> Retro Desing Free Board_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-1.jpg" />" alt="image1">
@@ -144,7 +180,7 @@
             <span class="caption">
               <span class="caption-content">
                 <h2>Bloging</h2>
-                <p class="mb-0">In Tistory Blog_.</p>
+                <p class="mb-0"><i class="fab fa-blogger"></i> In Tistory Blog_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-2.jpg" />" alt="image2">
@@ -154,8 +190,8 @@
           <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2>Strawberries</h2>
-                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                <h2>Coding History</h2>
+                <p class="mb-0"><i class="fas fa-clipboard-list"></i> Skill Inventory Line Card_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-3.jpg" />" alt="image3">
@@ -165,8 +201,8 @@
           <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2>Workspace</h2>
-                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                <h2>Workspace In GitHub</h2>
+                <p class="mb-0"><i class="icon-social-github"></i> My Github URL_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-4.jpg" />" alt="image4">
@@ -179,7 +215,10 @@
   <section class="content-section bg-primary text-white">
     <div class="container text-center">
       <h2 class="mb-4">The buttons below are impossible to resist...</h2>
-      <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
+      <!-- Button trigger modal -->
+	  <button type="button" class="btn btn-xl btn-light mr-4" data-toggle="modal" data-target="#exampleModal">
+	  	Regist[회원가입]
+	  </button>
       <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
     </div>
   </section>
@@ -195,8 +234,9 @@
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
-      <h2>Here, Programing Stack</h2>
+      <h2 class="colorWhite">Here, Programing Stack!!!</h2>
       <hr>
+      <div class="marginTop60"></div>
       <ul class="list-inline mb-5">
         <li class="list-inline-item">
           <a class="social-link rounded-circle text-white mr-3" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"  target="_blank">
@@ -224,8 +264,47 @@
           </a>
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright &copy; AnicoBoard 2019 [Coding By Leos]</p>
+      <p class="small mb-0 colorWhite">Copyright &copy; AnicoBoard 2019 [Coding By Leos]</p>
     </div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">회원가입</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body left">
+	        <form action="" accept-charset="utf-8" name="person_info" method="POST" >
+			  <div class="form-group">
+			    <label for="email">Email</label>
+			    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
+			  </div>
+			  <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="password" class="form-control" id="password1" placeholder="비밀번호를 입력해주세요.">
+			  </div>
+			  <div class="form-group">
+			    <label for="password">Password 확인</label>
+			    <input type="password" class="form-control" id="password2" placeholder="확인 비밀번호를 입력해주세요.">
+			  </div>
+			  <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+			  <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+			  <div class="form-group form-check">
+			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			  </div>
+			  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" onclick="register()">가입하기</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
   </footer>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
@@ -234,6 +313,7 @@
 </body>
   <!-- Bootstrap core JavaScript -->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
+  <script src="<c:url value="/resources/vendor/jquery/jquery.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
   <!-- Plugin JavaScript -->
   <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
