@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="conPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -124,11 +125,10 @@
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="<c:url value="/board/main/"/>" >
             <span class="caption">
               <span class="caption-content">
-                <h2>Stationary</h2>
-                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                <h2>Board</h2>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-1.jpg" />" alt="image1">

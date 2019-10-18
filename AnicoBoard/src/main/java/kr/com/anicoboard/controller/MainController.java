@@ -18,13 +18,22 @@ public class MainController {
 	/**
 	 * Index Page /anicoboard.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 	public String index( Model model) {
 				
 //		String jspPageinitText = "Hellow World";
 //		model.addAttribute("serverTime", jspPageinitText );
 		
 		return "index";
+	}
+	
+	/**
+	 * /board/main
+	 */
+	@RequestMapping(value = "/board/main")
+	public String mainBoard( Model model) {
+		
+		return "/board/boardListView";
 	}
 	
 }
