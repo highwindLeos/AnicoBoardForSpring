@@ -29,6 +29,7 @@
 	<script>swal('${checkResult }', '','success');</script>
 </c:if>
 <div id="wrap">
+	<!-- 
 	<div id="header">
 		<c:if test="${empty loginOk and empty adminOk }">
 		<ul id="gnb">
@@ -54,13 +55,14 @@
 		</ul>
 		</c:if>
 	</div>
+	-->
 	<div id="logo">
 		<a href="${conPath }/"><img class="logo" src="<c:url value="/resources/img/logo.png"/>" alt="Logo" /></a>
 		<audio id="coin" src ="${conPath }/js/source/Coin.wav"></audio>
 	</div>
 	<div id="navi">
 		<ul id="lnb">
-			<li><a href="${conPath }/mainView.do"><i class="fas fa-home"></i> 홈</a></li>
+			<li><a href="${conPath }/"><i class="fas fa-home"></i> 홈</a></li>
 			<li><a href="${conPath }/manualView.do"><i class="fab fa-glide"></i> 이용안내</a></li>
 			<li><a href="${conPath }/gameSearchView.do"><i class="fas fa-search"></i> 게임검색</a></li>
 			<li><a href="${conPath }/gameListView.do"><i class="fas fa-list-alt"></i> 게임리스트</a></li>

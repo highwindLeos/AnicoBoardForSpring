@@ -15,14 +15,14 @@
 <div id="wrap">
 	<div id="footer">
 		<div class="col1">
-			<img class="footerLogo" src="${conPath }/img/logo.png" alt="logo" />
+			<img class="footerLogo" src="<c:url value="/resources/img/logo.png"/>" alt="logo" />
 		</div>
 		<div class="col2">
 			<br />
-			<h4 class="left colorDarkGray">(C)Retrotory</h4>
+			<h4 class="left colorDarkGray">(C) AnicoBoard Project</h4>
 			<hr />
-			<p class="left colorDarkGray">작성자 : 이승훈 | 사업자 번호 : 000 - 00 - 00000</p>
-			<p class="left colorDarkGray">소재지 : 서울시 종로구 000동 000번지 00B/D 5층 | 관리자 메일 : <a class="boldCoral" href="mailto:highwind26@gmail.com">highwind26@gmail.com</a></p>
+			<p class="left colorDarkGray"></p>
+			<p class="left colorDarkGray"><a class="boldCoral" href="mailto:highwind26@gmail.com">highwind26@gmail.com</a></p>
 		</div>
 		<div class="col3">
 			<ul>

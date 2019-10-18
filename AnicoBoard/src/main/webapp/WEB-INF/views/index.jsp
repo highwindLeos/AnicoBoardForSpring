@@ -41,6 +41,10 @@
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#contact">Contact</a>
       </li>
+      <hr> <!-- Line -->
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href='<c:url value="/board/main/"/>'>Board</a>
+      </li>
     </ul>
   </nav>
   <!-- Header -->
@@ -60,9 +64,9 @@
       <div class="row">
         <div class="col-lg-10 mx-auto">
           <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-          <p class="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
-            <a href="https://unsplash.com/">Unsplash</a>!</p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
+          <p class="lead mb-5">이 테마는 Unsplash 의 Photo Portfolio 를 이용하여 제작되었습니다.
+            <a href="https://unsplash.com/"><i class="fas fa-camera-retro"></i> Unsplash!</a></p>
+          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services"><i class="far fa-function"></i> In Function Library</a>
         </div>
       </div>
     </div>
@@ -72,7 +76,7 @@
     <div class="container">
       <div class="content-section-heading">
         <h3 class="text-secondary mb-0">Services</h3>
-        <h2 class="mb-5">What We Offer</h2>
+        <h2 class="mb-5"><i class="far fa-function"></i> In Function Library</h2>
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
@@ -89,29 +93,29 @@
             <i class="icon-pencil"></i>
           </span>
           <h4>
-            <strong>Redesigned</strong>
+            <strong>Spring FrameWork</strong>
           </h4>
-          <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+          <p class="text-faded mb-0">Logic Designed for Spring Framework.</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-like"></i>
+            <i class="fab fa-js-square"></i>
           </span>
           <h4>
-            <strong>Favorited</strong>
+            <strong>Java & Javascript</strong>
           </h4>
-          <p class="text-faded mb-0">Millions of users
+          <p class="text-faded mb-0">3 Billions Devices of users
             <i class="fas fa-heart"></i>
-            Start Bootstrap!</p>
+            Java And Back-End Stack!</p>
         </div>
         <div class="col-lg-3 col-md-6">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-mustache"></i>
+            <i class="fas fa-database"></i>
           </span>
           <h4>
-            <strong>Question</strong>
+            <strong>Oracle And Relration Database</strong>
           </h4>
-          <p class="text-faded mb-0">I mustache you a question...</p>
+          <p class="text-faded mb-0">Database System Engineering In Oracle, SQL Server, MySql, PostgreSQL</p>
         </div>
       </div>
     </div>
@@ -121,7 +125,7 @@
     <div class="container">
       <div class="content-section-heading text-center">
         <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5">Recent Projects</h2>
+        <h2 class="mb-5"><i class="fab fa-bootstrap"></i> Projects</h2>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
@@ -129,17 +133,18 @@
             <span class="caption">
               <span class="caption-content">
                 <h2>Board</h2>
+                <p class="mb-0">Free Board_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-1.jpg" />" alt="image1">
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="https://anicoboard.tistory.com/">
             <span class="caption">
               <span class="caption-content">
-                <h2>Ice Cream</h2>
-                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                <h2>Bloging</h2>
+                <p class="mb-0">In Tistory Blog_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-2.jpg" />" alt="image2">
@@ -180,9 +185,8 @@
   </section>
   <!-- Map -->
   <section id="contact" class="map">
-    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-    		src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed">
-    </iframe>
+  	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3894.9617660486956!2d127.03512035316923!3d37.64622091024945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbeaa635419c9%3A0x2fea4b6a0f2a70aa!2z7ISc7Jq47Yq567OE7IucIOuPhOu0ieq1rCDssL3rj5kg64-E67SJ66GcMTEy6ri4!5e0!3m2!1sko!2skr!4v1571402334132!5m2!1sko!2skr" 
+  	 width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     <br />
     <small>
       <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
@@ -191,19 +195,31 @@
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
+      <h2>Here, Programing Stack</h2>
+      <hr>
       <ul class="list-inline mb-5">
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-facebook"></i>
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"  target="_blank">
+            <i class="fab fa-java"></i>
           </a>
         </li>
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-twitter"></i>
+          <a class="social-link rounded-circle text-white mr-3" href="https://developer.mozilla.org/ko/docs/Web/JavaScript"  target="_blank">
+            <i class="fab fa-js-square"></i>
           </a>
         </li>
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="#">
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.php.net/"  target="_blank">
+            <i class="fab fa-php"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.oracle.com/kr/index.html"  target="_blank">
+            <i class="fas fa-server"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/highwindLeos" target="_blank">
             <i class="icon-social-github"></i>
           </a>
         </li>
