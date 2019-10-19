@@ -7,15 +7,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Main</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Main</title>
 	</head>
 <body>
 <jsp:include page="head.jsp" />
-<c:if test="${not empty memberDeleteResult }">
-	<script>swal('${memberDeleteResult }','','success');</script>
-</c:if>
 <div id="main">	
 	<div id="left">
 		<div id="notice">

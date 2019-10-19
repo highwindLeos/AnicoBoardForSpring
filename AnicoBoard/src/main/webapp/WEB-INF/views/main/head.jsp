@@ -16,11 +16,11 @@
 		<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/css/board.css" />" rel="stylesheet">
 		<link href="<c:url value="/resources/slick/slick.css"/>" rel="stylesheet" type="text/css" />
-	
-	  	<script src="<c:url value="/resources/js/main.js" />"></script>
+
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	  	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	  	<script src="<c:url value="/resources/js/main.js" />"></script>
 	  	
 		<title>Main Board</title>
 	</head>
@@ -58,7 +58,7 @@
 	-->
 	<div id="logo">
 		<a href="${conPath }/"><img class="logo" src="<c:url value="/resources/img/logo.png"/>" alt="Logo" /></a>
-		<audio id="coin" src ="${conPath }/js/source/Coin.wav"></audio>
+		<audio id="coin" src ="<c:url value="/resources/js/source/Coin.wav" />"></audio>
 	</div>
 	<div id="navi">
 		<ul id="lnb">

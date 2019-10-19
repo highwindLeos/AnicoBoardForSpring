@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	<div>
-		<h4>Copyright LEO Portfolio All right Reserved</h4>
+		<h4>Copyright AnicoBoard. Published Leos All right Reserved</h4>
 	</div>
 </div>
 </body>
