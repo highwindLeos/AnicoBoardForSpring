@@ -32,7 +32,7 @@ public class MainController {
 	/**
 	 * /board/main
 	 */
-	@RequestMapping(value = "/board/main")
+	@RequestMapping(value = "/board")
 	public String mainBoard(HttpServletRequest req, HttpServletResponse res,  Model model) {
 		
 		return "/board/boardListView";

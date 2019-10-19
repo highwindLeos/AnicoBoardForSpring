@@ -155,7 +155,7 @@
           <h4>
             <strong>Spring FrameWork</strong>
           </h4>
-          <p class="text-faded mb-0">Logic Designed for Spring Framework.</p>
+          <p class="text-faded mb-0">Logic Designed whit Spring Framework.</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
@@ -166,7 +166,7 @@
           </h4>
           <p class="text-faded mb-0">3 Billions Devices of users
             <i class="fas fa-heart"></i>
-            Java And Back-End Stack!</p>
+            JavaScript And Java Back-End Stack!</p>
         </div>
         <div class="col-lg-3 col-md-6">
           <span class="service-icon rounded-circle mx-auto mb-3">
@@ -189,7 +189,7 @@
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
-          <a class="portfolio-item" href="<c:url value="/board/main/"/>" >
+          <a class="portfolio-item" href="<c:url value="/board"/>" >
             <span class="caption">
               <span class="caption-content">
                 <h2>Retrotory Board</h2>
@@ -248,8 +248,9 @@
   <footer class="footer text-center">
     <div class="container">
       <h2 class="colorWhite">Here, Programing Stack!!!</h2>
-      <hr>
-      <div class="marginTop60"></div>
+      <div class="marginTop20"></div>
+      	<hr>
+      <div class="marginTop20"></div>
       <ul class="list-inline mb-5">
         <li class="list-inline-item">
           <a class="social-link rounded-circle text-white mr-3" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"  target="_blank">

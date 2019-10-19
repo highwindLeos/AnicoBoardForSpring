@@ -26,7 +26,7 @@
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1 capsule colorDarkGray">Skill Inventory List Card</h1>
+      <h1 class="mb-1 capsule colorDarkGray">Skill Inventory Line Card</h1>
       <div class="marginTop40"></div>
 	  <button type="button" class="btn btn-dark btn-xl" onclick="home()">Home</button>
     </div>
@@ -73,22 +73,10 @@
       </div>
     </div>
   </section>
-  <!-- Map 
-  <section id="contact" class="map">
-  	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3894.9617660486956!2d127.03512035316923!3d37.64622091024945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbeaa635419c9%3A0x2fea4b6a0f2a70aa!2z7ISc7Jq47Yq567OE7IucIOuPhOu0ieq1rCDssL3rj5kg64-E67SJ66GcMTEy6ri4!5e0!3m2!1sko!2skr!4v1571402334132!5m2!1sko!2skr" 
-  	 width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-    <br />
-    <small>
-      <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-    </small>
-  </section>
-  -->
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
-      <h2 class="colorWhite">Here, Programing Stack!!!</h2>
-      <hr>
-      <div class="marginTop60"></div>
+      <div class="marginTop20"></div>
       <p class="small mb-0 colorWhite">Copyright &copy; AnicoBoard 2019 [Coding By Leos]</p>
     </div>
   </footer>
