@@ -53,6 +53,14 @@
 		
 		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord);
 	}
+	
+	//Login
+	logIn = () => {
+		let eMail = $('#email').val();
+		let passWord = $('#password').val();
+		
+		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord);
+	}
 </script>
 
 <body id="page-top" class="backGroundNomal">
@@ -87,10 +95,22 @@
       </li>
     </ul>
   </nav>
+  <!-- Call to Action -->
+  <section class="padding10 text-white backGroundWhite">
+    <div class="container-fluid right">
+      <!-- Button trigger modal -->
+	  <button type="button" class="btn btn-sm btn-outline-primary mr-1" data-toggle="modal" data-target="#modalRegist">
+	  	Regist [회원가입]
+	  </button>
+	  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" data-toggle="modal" data-target="#modalLogin">
+	  	Login [로그인]
+	  </button>
+    </div>
+  </section>
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1 capsule colorDarkGray">WelCome To AnicoBoard - Portfolio</h1>
+      <h1 class="mb-1 capsule colorDarkGray">AnicoBoard Portfolio</h1>
       <div class="marginTop40"></div>
       <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">ABOUT</a>
     </div>
@@ -191,7 +211,7 @@
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="<c:url value="/skill" />" >
             <span class="caption">
               <span class="caption-content">
                 <h2>Coding History</h2>
@@ -213,19 +233,6 @@
           </a>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Call to Action -->
-  <section class="content-section bg-primary text-white">
-    <div class="container text-center">
-      <h2 class="mb-4"></h2>
-      <!-- Button trigger modal -->
-	  <button type="button" class="btn btn-xl btn-dark mr-4" data-toggle="modal" data-target="#modalRegist">
-	  	Regist [회원가입]
-	  </button>
-	  <button type="button" class="btn btn-xl btn-dark mr-4" data-toggle="modal" data-target="#modalLogin">
-	  	Login [로그인]
-	  </button>
     </div>
   </section>
   <!-- Map -->
@@ -339,7 +346,7 @@
 			</form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+	        <button type="button" class="btn btn-primary" onclick="logIn()">Login</button>
 	      </div>
 	    </div>
 	  </div>

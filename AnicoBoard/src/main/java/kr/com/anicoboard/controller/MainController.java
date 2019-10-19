@@ -1,11 +1,13 @@
 package kr.com.anicoboard.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Handles requests for the application home page.
@@ -19,7 +21,7 @@ public class MainController {
 	 * Index Page /anicoboard.
 	 */
 	@RequestMapping(value = "/")
-	public String index( Model model) {
+	public String index(HttpServletRequest req, HttpServletResponse res,  Model model) {
 				
 //		String jspPageinitText = "Hellow World";
 //		model.addAttribute("serverTime", jspPageinitText );
@@ -31,9 +33,18 @@ public class MainController {
 	 * /board/main
 	 */
 	@RequestMapping(value = "/board/main")
-	public String mainBoard( Model model) {
+	public String mainBoard(HttpServletRequest req, HttpServletResponse res,  Model model) {
 		
 		return "/board/boardListView";
+	}
+	
+	/**
+	 * /board/main
+	 */
+	@RequestMapping(value = "/skill")
+	public String skill(HttpServletRequest req, HttpServletResponse res, Model model) {
+		
+		return "/skill/skill";
 	}
 	
 }
