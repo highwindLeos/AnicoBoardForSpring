@@ -23,7 +23,11 @@ CREATE TABLE Anicoboard_Member (
 	Id varchar(10),
 	eMail VARCHAR2(100),
 	passWord VARCHAR2(200),
-	
+	userName VARCHAR2(100),
+	create_date DATE DEFAULT CURRENT_TIMESTAMP,
+	create_user VARCHAR2(100) ,
+	modify_date DATE DEFAULT CURRENT_TIMESTAMP,
+	modify_user VARCHAR2(100) ,
 	PRIMARY KEY (Id)
 );
 
@@ -59,6 +63,6 @@ VALUES
 SELECT * 
 FROM ANICOBOARD_SKILLLIST;
 
--- select Member
+-- select ANICOBOARD_MEMBER
 SELECT * 
 FROM ANICOBOARD_MEMBER;
