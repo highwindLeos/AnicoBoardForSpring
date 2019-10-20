@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import kr.com.anicoboard.dao.MemberDao;
 import kr.com.anicoboard.model.Member;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j
+@Slf4j
 @Repository
 public class MemberDaoImpl implements MemberDao {
 	
@@ -17,7 +17,6 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int register(Member member) {
-		log.info(member.toString());
 		return sessionTemplate.insert("register", member);
 	}
 	

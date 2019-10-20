@@ -7,11 +7,13 @@
 	
 	<!-- 사용자 가입 -->
 	<insert id="register" parameterType="Member">
+	<![CDATA[  
 		INSERT INTO 
-			ADMIN
-		(eMail, passWord) 
-			VALUES 
-		(#{eMail},#{passWord})
+			ANICOBOARD_MEMBER
+		(ID, EMAIL, PASSWORD, USERNAME, CREATE_DATE, CREATE_USER, MODIFY_DATE, MODIFY_USER)
+			VALUES
+		(SEQ_MEMBER_ID.NEXTVAL, #{eMail}, #{passWord}, #{userName}, CURRENT_TIMESTAMP, 'leos', CURRENT_TIMESTAMP, 'leos')
+	]]>
 	</insert>
 	
 </mapper>

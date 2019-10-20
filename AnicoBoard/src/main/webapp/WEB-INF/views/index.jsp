@@ -20,57 +20,81 @@
   <link href='<c:url value="/resources/css/stylish-portfolio.min.css" />' rel="stylesheet">
   <!-- Jquery Lib -->
   <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 <script>
-	$(document).ready(function(){
-		// Log in		
-        $('#registerBtn').on('click', function() {
-        	
-        	var eMail = $('#email').val();
-    		var passWord = $('#password1').val();
-    		var rePassWord = $('#password2').val();
-    		
-    		var url = "<c:url value='/member/regist' />";
-    		var member = {
-   				eMail : eMail,
-   				passWord : passWord,
-   				rePassWord : rePassWord
-    		};
-    		
-    		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord + 'rePassword ::' + rePassWord);
-    		console.log(JSON.stringify(member));
-    		
-    		$.ajax({
-    			  url : url,
-    			  type : 'POST',
-    			  dataType : 'json',
-    			  data : member,
-    			  success : function(data){
-    				  console.log(JSON.stringify(data));
-    				  console.log('성공');
-    			  },
-    			  error : function (jqXHR, status, errorThrown) {
-    				  console.log('ERROR !!! ' + status + ' : ' + errorThrown)
-    			  }
-   			});
-        });
-	});
+$(document).ready(function(){
+	// hide alert Message Box
+	$("#alert-success").hide();
+    $("#alert-danger").hide();
 	
-	window.onload = function(){
-		$("#alert-success").hide();
-	    $("#alert-danger").hide();
-	};
-    
-    $('input[type="password"]').keyup(function(){
-    	
+	// Regist Member
+    $('#registerBtn').on('click', function() {
+      	
+      	var eMail = $('#email').val();
+  		var passWord = $('#password1').val();
+  		var rePassWord = $('#password2').val();
+  		var userName = $('#userName').val();
+  
+  		 console.log(passWord.length);
+  		if (false) {
+  			Swal.fire({
+    			  type: 'error',
+    			  title: '패스워드는 8 ~ 13자 입니다.',
+    			  text: '',
+    			  footer: ''
+    			})
+    			return;
+  		}	
+  		
+  		if (passWord !== rePassWord) {
+  			Swal.fire({
+  			  type: 'error',
+  			  title: '패스워드가 틀립니다.',
+  			  text: '',
+  			  footer: ''
+  			})
+  			return;
+  		}
+  		
+  		var url = "<c:url value='/member/regist' />";
+  		var member = {
+ 				eMail : eMail ,
+ 				passWord : passWord ,
+ 				rePassWord : rePassWord ,
+ 				userName : userName
+  		};
+  		
+  		console.log(JSON.stringify(member));
+  		
+  		$.ajax({
+  			  url : url,
+  			  type : 'POST',
+  			  /* dataType : 'json', */
+  			  data : member,
+  			  success : function(data){
+  				  console.log(JSON.stringify(data));
+  				  console.log('성공');
+  			  },
+  			  error : function (jqXHR, status, errorThrown) {
+  				  console.log('ERROR !!! ' + status + ' : ' + errorThrown)
+  			  }
+ 			});
+    });
+
+	// Passqord Validation
+    $("input[type='password']").keyup(function(event) {
+  		console.log('key up')
         let password1 = $("#password1").val();
         let password2 = $("#password2").val();
-        
+          
         console.log(password1);
         console.log(password2);
-        
-        if(password1 != "" || password2 != ""){
-            if(password1 == password2){
+          
+        if(password1 != "" || password2 != "")
+        {
+            if(password1 == password2)
+            {
                 $("#alert-success").show();
                 $("#alert-danger").hide();
                 $("#submit").removeAttr("disabled");
@@ -81,6 +105,7 @@
             }    
         }
     });
+});
 </script>
 
 <body id="page-top" class="backGroundNomal">
@@ -242,7 +267,7 @@
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="https://github.com/highwindLeos?tab=repositories" target="_blank">
             <span class="caption">
               <span class="caption-content">
                 <h2>Workspace In GitHub</h2>
@@ -317,15 +342,20 @@
 			    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
 			  </div>
 			  <div class="form-group">
-			    <label for="password">Password</label>
+			    <label for="password1">Password</label>
 			    <input type="password" class="form-control" id="password1" placeholder="비밀번호를 입력해주세요.">
 			  </div>
 			  <div class="form-group">
-			    <label for="password">Password 확인</label>
+			    <label for="password2">Password 확인</label>
 			    <input type="password" class="form-control" id="password2" placeholder="확인 비밀번호를 입력해주세요.">
 			  </div>
+			  <!-- meassage div : hide -->
 			  <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 			  <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+			  <div class="form-group">
+			    <label for="password">UserName</label>
+			    <input type="text" class="form-control" id="userName" placeholder="사용자 명을 입력해주세요.">
+			  </div>
 			  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 			</form>
 	      </div>

@@ -8,8 +8,9 @@ import kr.com.anicoboard.dao.impl.MemberDaoImpl;
 import kr.com.anicoboard.model.Member;
 import kr.com.anicoboard.service.MemberService;
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j
+@Slf4j
 @Service
 public class MemberServiceImpl implements MemberService {
 	
@@ -18,7 +19,9 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int register(Member member) {
-		log.info("member" + member.toString());
+		// 회원 가입 서비스 에서 Hasing Password 작업
+		
+		
 		return memberDao.register(member);
 	}
 

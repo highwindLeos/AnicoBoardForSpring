@@ -19,7 +19,7 @@
 
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	  	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	  	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	  	<script src="<c:url value="/resources/js/main.js" />"></script>
 	  	
 		<title>Main Board</title>

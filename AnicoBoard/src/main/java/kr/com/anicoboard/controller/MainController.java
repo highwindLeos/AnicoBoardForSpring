@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.com.anicoboard.model.Member;
 import kr.com.anicoboard.service.MemberService;
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Handles requests for the application home page.
  */
-@Log4j
+@Slf4j
 @Controller
 public class MainController {
 
@@ -53,12 +54,12 @@ public class MainController {
 	 * /member/regist
 	 */
 	@RequestMapping(value = "/member/regist")
-	public String regist(HttpServletRequest req, HttpServletResponse res, Member member) {
+	public String regist(HttpServletRequest req, HttpServletResponse res, Model model, Member member) {
 
-		log.info(member.toString());
-		memberService.register(member);
+		int result = memberService.register(member);
+		model.addAttribute("registerResult", result);
 		
-		return "/skill/skill";
+		return "/index";
 	}
 	
 }
