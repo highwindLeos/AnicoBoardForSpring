@@ -18,8 +18,44 @@
   <!-- Custom CSS -->
   <link href='<c:url value="/resources/css/main.css" />' rel="stylesheet">
   <link href='<c:url value="/resources/css/stylish-portfolio.min.css" />' rel="stylesheet">
+  <!-- Jquery Lib -->
+  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
 </head>
 <script>
+	$(document).ready(function(){
+		// Log in		
+        $('#registerBtn').on('click', function() {
+        	
+        	var eMail = $('#email').val();
+    		var passWord = $('#password1').val();
+    		var rePassWord = $('#password2').val();
+    		
+    		var url = "<c:url value='/member/regist' />";
+    		var member = {
+   				eMail : eMail,
+   				passWord : passWord,
+   				rePassWord : rePassWord
+    		};
+    		
+    		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord + 'rePassword ::' + rePassWord);
+    		console.log(JSON.stringify(member));
+    		
+    		$.ajax({
+    			  url : url,
+    			  type : 'POST',
+    			  dataType : 'json',
+    			  data : member,
+    			  success : function(data){
+    				  console.log(JSON.stringify(data));
+    				  console.log('성공');
+    			  },
+    			  error : function (jqXHR, status, errorThrown) {
+    				  console.log('ERROR !!! ' + status + ' : ' + errorThrown)
+    			  }
+   			});
+        });
+	});
+	
 	window.onload = function(){
 		$("#alert-success").hide();
 	    $("#alert-danger").hide();
@@ -45,22 +81,6 @@
             }    
         }
     });
-
-	//회원가입
-	register = () => {
-		let eMail = $('#email').val();
-		let passWord = $('#password').val();
-		
-		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord);
-	}
-	
-	//Login
-	logIn = () => {
-		let eMail = $('#email').val();
-		let passWord = $('#password').val();
-		
-		console.log('eMail ::' +eMail  + ' ::: password ::' + passWord);
-	}
 </script>
 
 <body id="page-top" class="backGroundNomal">
@@ -306,15 +326,11 @@
 			  </div>
 			  <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 			  <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
-			  <div class="form-group form-check">
-			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-			  </div>
 			  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 			</form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" onclick="register()">가입하기</button>
+	        <button type="button" id="registerBtn" class="btn btn-primary" >가입하기</button>
 	      </div>
 	    </div>
 	  </div>
@@ -333,21 +349,20 @@
 	        <form action="" accept-charset="utf-8" name="person_info" method="POST" >
 			  <div class="form-group">
 			    <label for="email">Email</label>
-			    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
+			    <input type="email" class="form-control" id="login_email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password1" placeholder="비밀번호를 입력해주세요.">
+			    <input type="password" class="form-control" id="login_password" placeholder="비밀번호를 입력해주세요.">
 			  </div>
 			  <div class="form-group form-check">
 			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
 			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
 			  </div>
-			  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 			</form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" onclick="logIn()">Login</button>
+	        <button type="button" class="btn btn-primary">Log-in</button>
 	      </div>
 	    </div>
 	  </div>
@@ -359,8 +374,6 @@
   </a>
 </body>
   <!-- Bootstrap core JavaScript -->
-  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
-  <script src="<c:url value="/resources/vendor/jquery/jquery.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
   <!-- Plugin JavaScript -->
   <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>

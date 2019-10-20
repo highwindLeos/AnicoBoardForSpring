@@ -1,12 +1,13 @@
-package kr.com.anicoboard.service;
+package kr.com.anicoboard.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.com.anicoboard.dao.AdminDaoImpl;
+import kr.com.anicoboard.dao.impl.AdminDaoImpl;
 import kr.com.anicoboard.model.Admin;
+import kr.com.anicoboard.service.AdminService;
 
 @Service
 public class AdminServiceImpl implements AdminService {
