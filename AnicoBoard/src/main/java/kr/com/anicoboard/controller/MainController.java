@@ -1,30 +1,65 @@
 package kr.com.anicoboard.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.com.anicoboard.model.Member;
+import kr.com.anicoboard.service.MemberService;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Handles requests for the application home page.
  */
+@Slf4j
 @Controller
 public class MainController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+
+	@Autowired
+	private MemberService memberService;
 	
 	/**
 	 * Index Page /anicoboard.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index( Model model) {
+	@RequestMapping(value = "/")
+	public String index(HttpServletRequest req, HttpServletResponse res,  Model model) {
 				
-//		String jspPageinitText = "Hellow World";
-//		model.addAttribute("serverTime", jspPageinitText );
-		
 		return "index";
+	}
+	
+	/**
+	 * /board/main
+	 */
+	@RequestMapping(value = "/board")
+	public String mainBoard(HttpServletRequest req, HttpServletResponse res,  Model model) {
+		
+		return "/board/boardListView";
+	}
+	
+	/**
+	 * /board/main
+	 */
+	@RequestMapping(value = "/skill")
+	public String skill(HttpServletRequest req, HttpServletResponse res, Model model) {
+		
+		return "/skill/skill";
+	}
+	
+	/**
+	 * /member/regist
+	 */
+	@RequestMapping(value = "/member/regist")
+	public String regist(HttpServletRequest req, HttpServletResponse res, Model model, Member member) {
+
+		int result = memberService.register(member);
+		model.addAttribute("registerResult", result);
+		
+		return "/index";
 	}
 	
 }

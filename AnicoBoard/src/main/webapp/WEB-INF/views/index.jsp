@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="conPath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,10 +16,99 @@
   <link href="<c:url value="/resources/vendor/fontawesome-free/css/all.min.css" />" rel="stylesheet" type="text/css">
   <link href="<c:url value="/resources/vendor/simple-line-icons/css/simple-line-icons.css" />" rel="stylesheet">
   <!-- Custom CSS -->
+  <link href='<c:url value="/resources/css/main.css" />' rel="stylesheet">
   <link href='<c:url value="/resources/css/stylish-portfolio.min.css" />' rel="stylesheet">
+  <!-- Jquery Lib -->
+  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
+<script>
+$(document).ready(function(){
+	// hide alert Message Box
+	$("#alert-success").hide();
+    $("#alert-danger").hide();
+	
+	// Regist Member
+    $('#registerBtn').on('click', function() {
+      	
+      	var eMail = $('#email').val();
+  		var passWord = $('#password1').val();
+  		var rePassWord = $('#password2').val();
+  		var userName = $('#userName').val();
+  
+  		 console.log(passWord.length);
+  		if (false) {
+  			Swal.fire({
+    			  type: 'error',
+    			  title: '패스워드는 8 ~ 13자 입니다.',
+    			  text: '',
+    			  footer: ''
+    			})
+    			return;
+  		}	
+  		
+  		if (passWord !== rePassWord) {
+  			Swal.fire({
+  			  type: 'error',
+  			  title: '패스워드가 틀립니다.',
+  			  text: '',
+  			  footer: ''
+  			})
+  			return;
+  		}
+  		
+  		var url = "<c:url value='/member/regist' />";
+  		var member = {
+ 				eMail : eMail ,
+ 				passWord : passWord ,
+ 				rePassWord : rePassWord ,
+ 				userName : userName
+  		};
+  		
+  		console.log(JSON.stringify(member));
+  		
+  		$.ajax({
+  			  url : url,
+  			  type : 'POST',
+  			  /* dataType : 'json', */
+  			  data : member,
+  			  success : function(data){
+  				  console.log(JSON.stringify(data));
+  				  console.log('성공');
+  			  },
+  			  error : function (jqXHR, status, errorThrown) {
+  				  console.log('ERROR !!! ' + status + ' : ' + errorThrown)
+  			  }
+ 			});
+    });
 
-<body id="page-top">
+	// Passqord Validation
+    $("input[type='password']").keyup(function(event) {
+  		console.log('key up')
+        let password1 = $("#password1").val();
+        let password2 = $("#password2").val();
+          
+        console.log(password1);
+        console.log(password2);
+          
+        if(password1 != "" || password2 != "")
+        {
+            if(password1 == password2)
+            {
+                $("#alert-success").show();
+                $("#alert-danger").hide();
+                $("#submit").removeAttr("disabled");
+            } else {
+                $("#alert-success").hide();
+                $("#alert-danger").show();
+                $("#submit").attr("disabled", "disabled");
+            }    
+        }
+    });
+});
+</script>
+
+<body id="page-top" class="backGroundNomal">
   <!-- Navigation -->
   <a class="menu-toggle rounded" href="#">
     <i class="fas fa-bars"></i>
@@ -26,7 +116,7 @@
   <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#page-top">Home AnicoBarad</a>
+        <a class="js-scroll-trigger" href="#page-top">AnicoBoard</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#about">About</a>
@@ -40,16 +130,34 @@
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href="#contact">Contact</a>
       </li>
+      <hr> <!-- Line -->
+      <p class="colorWhite center">Projects</p>	
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href='<c:url value="/board/main/"/>'>Board</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href='https://anicoboard.tistory.com/'><i class="fab fa-blogger"></i> Blog</a>
+      </li>
     </ul>
   </nav>
+  <!-- Call to Action -->
+  <section class="padding10 text-white backGroundWhite">
+    <div class="container-fluid right">
+      <!-- Button trigger modal -->
+	  <button type="button" class="btn btn-sm btn-outline-primary mr-1" data-toggle="modal" data-target="#modalRegist">
+	  	Regist [회원가입]
+	  </button>
+	  <button type="button" class="btn btn-sm btn-outline-secondary mr-1" data-toggle="modal" data-target="#modalLogin">
+	  	Login [로그인]
+	  </button>
+    </div>
+  </section>
   <!-- Header -->
   <header class="masthead d-flex">
     <div class="container text-center my-auto">
-      <h1 class="mb-1">WelCome To AnicoBoard - Portfolio</h1>
-      <h3 class="mb-5">
-        <em>Used Bootstrap Library</em>
-      </h3>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+      <h1 class="mb-1 capsule colorDarkGray">AnicoBoard Portfolio</h1>
+      <div class="marginTop40"></div>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">ABOUT</a>
     </div>
     <div class="overlay"></div>
   </header>
@@ -58,10 +166,12 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-lg-10 mx-auto">
+          <h3 class="text-secondary mb-0">ABOUT</h3>
+          <div class="marginTop40"></div>
           <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-          <p class="lead mb-5">This theme features a flexible, UX friendly sidebar menu and stock photos from our friends at
-            <a href="https://unsplash.com/">Unsplash</a>!</p>
-          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
+          <p class="lead mb-5">이 테마는 Unsplash 의 Photo Portfolio 를 이용하여 제작되었습니다.
+            <a href="https://unsplash.com/"><i class="fas fa-camera-retro"></i> Unsplash!</a></p>
+          <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services"><i class="far fa-function"></i> In Function Library</a>
         </div>
       </div>
     </div>
@@ -71,7 +181,7 @@
     <div class="container">
       <div class="content-section-heading">
         <h3 class="text-secondary mb-0">Services</h3>
-        <h2 class="mb-5">What We Offer</h2>
+        <h2 class="mb-5"><i class="far fa-function"></i> In Function Library</h2>
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
@@ -88,29 +198,29 @@
             <i class="icon-pencil"></i>
           </span>
           <h4>
-            <strong>Redesigned</strong>
+            <strong>Spring FrameWork</strong>
           </h4>
-          <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+          <p class="text-faded mb-0">Logic Designed whit Spring Framework.</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-like"></i>
+            <i class="fab fa-js-square"></i>
           </span>
           <h4>
-            <strong>Favorited</strong>
+            <strong>Java & Javascript</strong>
           </h4>
-          <p class="text-faded mb-0">Millions of users
+          <p class="text-faded mb-0">3 Billions Devices of users
             <i class="fas fa-heart"></i>
-            Start Bootstrap!</p>
+            JavaScript And Java Back-End Stack!</p>
         </div>
         <div class="col-lg-3 col-md-6">
           <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-mustache"></i>
+            <i class="fas fa-database"></i>
           </span>
           <h4>
-            <strong>Question</strong>
+            <strong>Oracle And Relration Database</strong>
           </h4>
-          <p class="text-faded mb-0">I mustache you a question...</p>
+          <p class="text-faded mb-0">Database System Engineering In Oracle, SQL Server, MySql, PostgreSQL</p>
         </div>
       </div>
     </div>
@@ -120,48 +230,48 @@
     <div class="container">
       <div class="content-section-heading text-center">
         <h3 class="text-secondary mb-0">Portfolio</h3>
-        <h2 class="mb-5">Recent Projects</h2>
+        <h2 class="mb-5 colorWhite"><i class="fab fa-bootstrap"></i> Projects</h2>
       </div>
       <div class="row no-gutters">
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="<c:url value="/board"/>" >
             <span class="caption">
               <span class="caption-content">
-                <h2>Stationary</h2>
-                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                <h2>Retrotory Board</h2>
+                <p class="mb-0"><i class="fas fa-gamepad"></i> Retro Desing Free Board_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-1.jpg" />" alt="image1">
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="https://anicoboard.tistory.com/">
             <span class="caption">
               <span class="caption-content">
-                <h2>Ice Cream</h2>
-                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                <h2>Bloging</h2>
+                <p class="mb-0"><i class="fab fa-blogger"></i> In Tistory Blog_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-2.jpg" />" alt="image2">
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="<c:url value="/skill" />" >
             <span class="caption">
               <span class="caption-content">
-                <h2>Strawberries</h2>
-                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                <h2>Coding History</h2>
+                <p class="mb-0"><i class="fas fa-clipboard-list"></i> Skill Inventory Line Card_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-3.jpg" />" alt="image3">
           </a>
         </div>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <a class="portfolio-item" href="https://github.com/highwindLeos?tab=repositories" target="_blank">
             <span class="caption">
               <span class="caption-content">
-                <h2>Workspace</h2>
-                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                <h2>Workspace In GitHub</h2>
+                <p class="mb-0"><i class="icon-social-github"></i> My Github URL_.</p>
               </span>
             </span>
             <img class="img-fluid" src="<c:url value="/resources/img/portfolio-4.jpg" />" alt="image4">
@@ -170,19 +280,10 @@
       </div>
     </div>
   </section>
-  <!-- Call to Action -->
-  <section class="content-section bg-primary text-white">
-    <div class="container text-center">
-      <h2 class="mb-4">The buttons below are impossible to resist...</h2>
-      <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
-      <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
-    </div>
-  </section>
   <!-- Map -->
   <section id="contact" class="map">
-    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
-    		src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed">
-    </iframe>
+  	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3894.9617660486956!2d127.03512035316923!3d37.64622091024945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbeaa635419c9%3A0x2fea4b6a0f2a70aa!2z7ISc7Jq47Yq567OE7IucIOuPhOu0ieq1rCDssL3rj5kg64-E67SJ66GcMTEy6ri4!5e0!3m2!1sko!2skr!4v1571402334132!5m2!1sko!2skr" 
+  	 width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     <br />
     <small>
       <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
@@ -191,25 +292,111 @@
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
+      <h2 class="colorWhite">Here, Programing Stack!!!</h2>
+      <div class="marginTop20"></div>
+      	<hr>
+      <div class="marginTop20"></div>
       <ul class="list-inline mb-5">
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-facebook"></i>
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"  target="_blank">
+            <i class="fab fa-java"></i>
           </a>
         </li>
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-twitter"></i>
+          <a class="social-link rounded-circle text-white mr-3" href="https://developer.mozilla.org/ko/docs/Web/JavaScript"  target="_blank">
+            <i class="fab fa-js-square"></i>
           </a>
         </li>
         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="#">
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.php.net/"  target="_blank">
+            <i class="fab fa-php"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="https://www.oracle.com/kr/index.html"  target="_blank">
+            <i class="fas fa-server"></i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/highwindLeos" target="_blank">
             <i class="icon-social-github"></i>
           </a>
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright &copy; AnicoBoard 2019 [Coding By Leos]</p>
+      <p class="small mb-0 colorWhite">Copyright &copy; AnicoBoard 2019 [Coding By Leos]</p>
     </div>
+	<!-- Modal Regist -->
+	<div class="modal fade" id="modalRegist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">회원가입</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body left">
+	        <form action="" accept-charset="utf-8" name="person_info" method="POST" >
+			  <div class="form-group">
+			    <label for="email">Email</label>
+			    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
+			  </div>
+			  <div class="form-group">
+			    <label for="password1">Password</label>
+			    <input type="password" class="form-control" id="password1" placeholder="비밀번호를 입력해주세요.">
+			  </div>
+			  <div class="form-group">
+			    <label for="password2">Password 확인</label>
+			    <input type="password" class="form-control" id="password2" placeholder="확인 비밀번호를 입력해주세요.">
+			  </div>
+			  <!-- meassage div : hide -->
+			  <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+			  <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+			  <div class="form-group">
+			    <label for="password">UserName</label>
+			    <input type="text" class="form-control" id="userName" placeholder="사용자 명을 입력해주세요.">
+			  </div>
+			  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" id="registerBtn" class="btn btn-primary" >가입하기</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal modalLogin -->
+	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">로그인[Log-In]</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body left">
+	        <form action="" accept-charset="utf-8" name="person_info" method="POST" >
+			  <div class="form-group">
+			    <label for="email">Email</label>
+			    <input type="email" class="form-control" id="login_email" aria-describedby="emailHelp" placeholder="이메일을 입력해주세요">
+			  </div>
+			  <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="password" class="form-control" id="login_password" placeholder="비밀번호를 입력해주세요.">
+			  </div>
+			  <div class="form-group form-check">
+			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary">Log-in</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
   </footer>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
@@ -217,7 +404,6 @@
   </a>
 </body>
   <!-- Bootstrap core JavaScript -->
-  <script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
   <script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
   <!-- Plugin JavaScript -->
   <script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>

@@ -5,8 +5,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="Admin" type="kr.com.anicoboard.model.Admin" />		
+		<typeAlias alias="Member" type="kr.com.anicoboard.model.Member" />		
 	</typeAliases>
 	<mappers>
-		<mapper resource="META-INF/sqlmap/mappers/Admin.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/oracle/Admin.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/oracle/Member.xml"/>
 	</mappers>
 </configuration>
