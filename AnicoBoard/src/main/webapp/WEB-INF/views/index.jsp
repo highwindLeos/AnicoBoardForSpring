@@ -133,7 +133,7 @@ $(document).ready(function(){
       <hr> <!-- Line -->
       <p class="colorWhite center">Projects</p>	
       <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href='<c:url value="/board"/>'>Board</a>
+        <a class="js-scroll-trigger" href='<c:url value="/board"/>'>Retro Board</a>
       </li>
       <li class="sidebar-nav-item">
         <a class="js-scroll-trigger" href='https://anicoboard.tistory.com/'><i class="fab fa-blogger"></i> Blog</a>
