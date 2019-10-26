@@ -9,8 +9,8 @@ public class AnicoBoardSkillList {
 	
 	private String sId ;
 	private String projectName ;
-	private ZonedDateTime StartDate ; // date
-	private ZonedDateTime EndDate ;   // date
+	private String startDate ; // date
+	private String endDate ;   // date
 	private String customer;
 	private String task ;
 	private String os ;

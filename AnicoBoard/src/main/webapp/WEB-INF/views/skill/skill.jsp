@@ -71,6 +71,20 @@
 	     <div class="col capsule"><h6>Dev Tool</h6></div>
 	     <div class="col-2 capsule"><h6>Stack List</h6></div>
       </div>
+      <c:forEach var="skill" items="${skillList}">
+      <div class="row">
+      	<div class="col-2"><p><c:out value="${skill.projectName}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.startDate}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.endDate}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.customer}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.task}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.os}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.skillLanguage}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.dbms}" /></p></div>
+      	<div class="col"><p><c:out value="${skill.devTool}" /></p></div>
+      	<div class="col-2"><p><c:out value="${skill.stackList}" /></p></div>
+      </div>
+      </c:forEach>
     </div>
   </section>
   <!-- Footer -->
