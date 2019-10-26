@@ -53,11 +53,7 @@ public class MainController {
 	@RequestMapping(value = "/skill")
 	public String skill(HttpServletRequest req, HttpServletResponse res, Model model) {
 		
-		List<AnicoBoardSkillList> skillList = skillService.skillList();
-		log.info(skillList.toString());
-		
-		model.addAttribute("skillList", skillList);
-		
+		model.addAttribute("skillList", skillService.skillList());
 		return "/skill/skill";
 	}
 	

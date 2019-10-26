@@ -19,6 +19,7 @@ public class SkillDaoImpl implements SkillDao {
 
 	@Override
 	public List<AnicoBoardSkillList> skillList() {
+		
 		return sessionTemplate.selectList("selectSkillList", null);
 	}
 	
