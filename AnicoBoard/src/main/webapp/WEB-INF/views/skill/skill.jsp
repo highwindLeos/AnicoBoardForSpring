@@ -86,6 +86,11 @@
       	<div class="col-2"><p><c:out value="${skill.stackList}" /></p></div>
       </div>
       </c:forEach>
+      <div class="row">
+      	<div class="col-12 center">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#write">등록</button>
+		</div>
+      </div>
     </div>
   </section>
   <!-- Footer -->
@@ -95,6 +100,42 @@
       <p class="small mb-0 colorWhite">Copyright &copy; AnicoBoard 2019 [Coding By Leos]</p>
     </div>
   </footer>
+  <!-- Modal -->
+	<div class="modal fade" id="write" tabindex="-1" role="dialog" aria-labelledby="write" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" id="myModalLabel">Skill List 등록</h4>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+			  <div class="form-group">
+			    <h6><label for="projectName">Project Name</label></h6>
+			    <input type="text" class="form-control" id="projectName" placeholder="프로젝트 명을 입력하세요.">
+			  </div>
+			  <div class="form-group">
+			    <h6><label for="customer">Customer</label></h6>
+			    <input type="text" class="form-control" id="customer" placeholder="고객사를 입력하세요.">
+			  </div>
+			  <div class="checkbox">
+			     <h6>Task[업무]</h6>
+			      <input type="checkbox" id="dev" name="dev" value="개발"> <label for="dev">개발</label>
+			      <input type="checkbox" id="operation" name="operation" value="운영"> <label for="operation">운영</label>
+			  </div>
+			  <div class="checkbox">
+			  	<h6>O/S [개발시스템]</h6>
+			      <input type="checkbox" id="windows" name="windows" value="Windows/NT"> <label for="windows">Windows/NT</label> 
+			      <input type="checkbox" id="linux" name="linux" value="Linux"> <label for="linux">Linux</label> 
+			  </div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" onclick="writeSkillList()">저장</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
     <i class="fas fa-angle-up"></i>
