@@ -1,5 +1,7 @@
 package kr.com.anicoboard.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.com.anicoboard.model.AnicoBoardSkillList;
 import kr.com.anicoboard.model.Member;
 import kr.com.anicoboard.service.MemberService;
-import lombok.extern.log4j.Log4j;
+import kr.com.anicoboard.service.SkillService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -22,6 +25,9 @@ public class MainController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private SkillService skillService;
 	
 	/**
 	 * Index Page /anicoboard.
@@ -42,10 +48,15 @@ public class MainController {
 	}
 	
 	/**
-	 * /board/main
+	 * /skill/skill
 	 */
 	@RequestMapping(value = "/skill")
 	public String skill(HttpServletRequest req, HttpServletResponse res, Model model) {
+		
+		List<AnicoBoardSkillList> skillLsit = skillService.skillList();
+		log.info(skillLsit.toString());
+		
+		model.addAllAttributes(skillLsit);
 		
 		return "/skill/skill";
 	}
