@@ -11,8 +11,8 @@
 		SELECT 
 			  SID
 			, PROJECTNAME
-			, TO_CHAR(STARTDATE, 'yyyy-MM-dd') AS STARTDATE
-			, TO_CHAR(ENDDATE, 'yyyy-MM-dd') AS ENDDATE
+			, STARTDATE
+			, ENDDATE
 			, CUSTOMER
 			, TASK
 			, OS
