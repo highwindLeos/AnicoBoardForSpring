@@ -1,6 +1,8 @@
 package kr.com.anicoboard.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,10 @@ public class SkillDaoImpl implements SkillDao {
 	@Override
 	public List<AnicoBoardSkillList> skillList() {
 		
-		return sessionTemplate.selectList("selectSkillList", null);
+		Map<String, Object> parameter = new HashMap<String, Object>();
+		
+		
+		return sessionTemplate.selectList("selectSkillList", parameter);
 	}
 	
 }
