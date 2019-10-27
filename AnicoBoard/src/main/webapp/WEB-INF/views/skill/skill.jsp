@@ -18,14 +18,14 @@
   <link href="<c:url value="/resources/vendor/simple-line-icons/css/simple-line-icons.css" />" rel="stylesheet">
   <!-- Custom CSS -->
   <link href='<c:url value="/resources/css/main.css" />' rel="stylesheet">
-  <link href='<c:url value="/resources/css/stylish-portfolio.min.css" />' rel="stylesheet">
+  <link href='<c:url value="/resources/css/stylish-portfolio.css" />' rel="stylesheet">
 </head>
 <script>
 	home = () => { location.href = '${conPath }/' }
 </script>
 <body id="page-top" class="backGroundNomal">
   <!-- Header -->
-  <header class="masthead d-flex">
+  <header class="masthead2 d-flex">
     <div class="container text-center my-auto">
       <h1 class="mb-1 capsule colorDarkGray">Skill Inventory Line Card</h1>
       <div class="marginTop40"></div>
@@ -62,8 +62,8 @@
     <div class="container-flude">
       <div class="row">
 		 <div class="col-2 capsule"><h6>Project Name</h6></div>
-	     <div class="col capsule"><h6>Start Date</h6></div>
-	     <div class="col capsule"><h6>End Date</h6></div>
+	     <div class="col capsule"><h6>Start Date<br>[YYYY-MM]</h6></div>
+	     <div class="col capsule"><h6>End Date<br>[YYYY-MM]</h6></div>
 		 <div class="col capsule"><h6>Customer</h6></div>
 	     <div class="col capsule"><h6>Task</h6></div>
 	     <div class="col capsule"><h6>O/S</h6></div>
