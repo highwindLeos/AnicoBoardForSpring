@@ -23,7 +23,7 @@ public class SkillDaoImpl implements SkillDao {
 	public List<AnicoBoardSkillList> skillList() {
 		
 		Map<String, Object> parameter = new HashMap<String, Object>();
-		
+
 		return sessionTemplate.selectList("selectSkillList", parameter);
 	}
 	
