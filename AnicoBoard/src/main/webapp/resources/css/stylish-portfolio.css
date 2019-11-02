@@ -99,11 +99,37 @@ h6 {
   background-size: cover;
 }
 
+.masthead2 {
+  min-height: 30rem;
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-masthead2.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .masthead h1 {
   font-size: 4rem;
   margin: 0;
   padding: 0;
 }
+
+.masthead2 h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+	border-top : 1px solid #fff;
+	border-bottom : 1px solid #fff;
+	padding: 10px 0;
+} /* rows top bottom line*/
 
 @media (min-width: 992px) {
   .masthead {

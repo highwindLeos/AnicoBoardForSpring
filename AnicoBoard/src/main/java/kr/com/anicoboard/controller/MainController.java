@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.com.anicoboard.model.Member;
 import kr.com.anicoboard.service.MemberService;
-import lombok.extern.log4j.Log4j;
+import kr.com.anicoboard.service.SkillService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -22,6 +22,9 @@ public class MainController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private SkillService skillService;
 	
 	/**
 	 * Index Page /anicoboard.
@@ -42,11 +45,12 @@ public class MainController {
 	}
 	
 	/**
-	 * /board/main
+	 * /skill/skill
 	 */
 	@RequestMapping(value = "/skill")
 	public String skill(HttpServletRequest req, HttpServletResponse res, Model model) {
 		
+		model.addAttribute("skillList", skillService.skillList());
 		return "/skill/skill";
 	}
 	

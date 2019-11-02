@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.com.anicoboard.dao.MemberDao;
-import kr.com.anicoboard.dao.impl.MemberDaoImpl;
 import kr.com.anicoboard.model.Member;
 import kr.com.anicoboard.service.MemberService;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -20,8 +18,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int register(Member member) {
 		// 회원 가입 서비스 에서 Hasing Password 작업
-		
-		
 		return memberDao.register(member);
 	}
 

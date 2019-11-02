@@ -6,9 +6,11 @@
 	<typeAliases>
 		<typeAlias alias="Admin" type="kr.com.anicoboard.model.Admin" />		
 		<typeAlias alias="Member" type="kr.com.anicoboard.model.Member" />		
+		<typeAlias alias="AnicoBoardSkillList" type="kr.com.anicoboard.model.AnicoBoardSkillList" />		
 	</typeAliases>
 	<mappers>
 		<mapper resource="META-INF/sqlmap/mappers/oracle/Admin.xml"/>
 		<mapper resource="META-INF/sqlmap/mappers/oracle/Member.xml"/>
+		<mapper resource="META-INF/sqlmap/mappers/oracle/Skill.xml"/>
 	</mappers>
 </configuration>
